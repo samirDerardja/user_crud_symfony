@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+ 
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+
+
+
+<div class="container mt-4">
+
+       <table class="table col-md-8 mx-auto">
+       <h1>Liste des utilisateurs</h1>
+  <thead class="black white-text">
+    <tr>
+     
+      <th scope="col">Prenom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Date de naissance</th>
+      <th scope="col">Age</th>
+      <th scope="col">Actions</th>
+    
+    </tr>
+  </thead>
+  
+  <tbody>
+   {%  for user in users %}
+    <tr>
+    
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.birthDate ? user.birthDate| date('d/m/Y') : '' }}</td>
+      <td>{{user.ageUser}}</td>
+      <td><a href="{{ path('edit', {'id': user.id}) }}"><button type="button" class="btn btn-default btn-sm">Modifier</button></a>
+      <a href="{{ path('delete', {'id': user.id}) }}"><button type="button" class="btn btn-default btn-sm">Supprimer</button></a></td>
+
+
+    </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+    <div class="navigation">
+            {{ knp_pagination_render(users) }}
+        </div>
+    </div>
+{% endblock %}

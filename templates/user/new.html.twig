@@ -1,0 +1,29 @@
+  
+{% extends 'base.html.twig' %}
+
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+<div class="container mt-4 col-md-6">
+<h1>Ajouter un utilisateurs</h1>
+
+ <table class="table">
+
+  <tbody>
+   
+ <section class="ui container">
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+   <button type="submit" class="btn btn-primary">valider</button>
+{{ form_end(form) }}
+</section>
+      </tbody>
+    </table>
+     
+    </div>
+ 
+    {% endblock %}
+    {% block javascripts %}
+ 
+{% endblock %}
